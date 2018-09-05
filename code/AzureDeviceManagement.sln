@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Utilities", "Utilities\Utilities.vcxproj", "{A41C73F5-5CD5-41B2-BE34-035F3FAE8176}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9FF21BCF-FB8C-4E4F-8753-60F9DF02E585}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AzureDeviceProvisioningClient", "AzureDeviceProvisioningClient\AzureDeviceProvisioningClient.vcxproj", "{9B01D110-CD1A-46B1-BBCC-C93F6AB10AEA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LimpetApi", "LimpetApi\LimpetApi.vcxproj", "{342C1672-1913-408D-907E-082E64DEB404}"
