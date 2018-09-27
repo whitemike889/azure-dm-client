@@ -125,7 +125,8 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
 * Option 3: Use the [Device Management(DM) hello world application](<https://github.com/ms-iot/iot-core-azure-dm-client/blob/master/docs/dm-hello-world-overview.md>) for managing the device.
 
 Here is the screen shot for reference,
-<img src="docs/limpetazuredpsregister.PNG"/>
+
+<img src="docs/LimpetAzuredpsRegister.PNG"/>
 
 
 #### Setting up remote PowerShell connection
