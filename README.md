@@ -101,13 +101,15 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
     https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-provision-device-to-hub#enrolldevice
 
 #### Register the device in IotHub using DPS.
-* Run the below command in remote PowerShell connection to register the device in IotHub by using DPS configured data for sanity testing.
-<pre>
-limpet.exe -azuredps -register <tpm slot number> <global dps uri end point> <scope id> => register the current running device in Iothub using dps service.
-     <tpm slot number>: tpm slot number to store the key.
-     <global dps service uri>: it is generally fixed global.azure-devices-provisioning.net
-     <scope id>: customer dps scope id. you can get this information from azure portal dps service ->overview ->id scope.
-</pre>
+
+* Run the below command in remote PowerShell connection to register the current device in IotHub using DPS service.
+
+        limpet.exe -azuredps -register <tpm slot number> <global dps uri end point> <scope id>
+          <tpm slot number>: tpm slot number to store the key.
+          <global dps service uri>: it is generally fixed global.azure-devices-provisioning.net
+          <scope id>: customer dps scope id. you can get this information from azure portal dps service ->overview ->id scope.
+
+
 ##### Verification
 
 * Option 1: From the command line,
@@ -123,7 +125,7 @@ limpet.exe -azuredps -register <tpm slot number> <global dps uri end point> <sco
 * Option 3: Use the [Device Management(DM) hello world application](<https://github.com/ms-iot/iot-core-azure-dm-client/blob/master/docs/dm-hello-world-overview.md>) for managing the device.
 
 Here is the screen shot for reference,
-<img src="docs/limpetazuredpsenrollinfo.PNG"/>
+<img src="docs/limpetazuredpsregister.PNG"/>
 
 
 #### Setting up remote PowerShell connection
