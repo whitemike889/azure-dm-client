@@ -2,9 +2,11 @@
 // Licensed under the MIT License.
 
 // Initialises dps client. Internally initializes Urchin objects to work with TPM.
+//    Note that this API must be called before using dps client api's.
 HRESULT InitializeDpsClient();
 
 // Unitialize dps client. Internally deinitialize Urchin objects that were created as part InitializeDpsClient().
+//    Note that this API must be called in clean up portion of using dps client api's.
 HRESULT DeinitializeDpsClient();
 
 // Read TPM endorsement key public value.
@@ -16,7 +18,7 @@ HRESULT GetEndorsementKeyPub(
     _Inout_ UINT32 *pcbekPub
 );
 
-// Get device registration id by reading TPM to upload the device information to azure dps service.
+// Get device registration id by reading TPM. This is needed to upload the device information to azure dps service.
 //    registrationId - user has to pass sufficient WCHAR buffer to store device registration id. On succesful reading, buffer will be updated with device registration id.
 //    pcchRegistrationId - user has to pass size of passed WCHAR buffer. On successful reading, it updates with actual device registration id size.
 //    returns S_OK on successful reading and other relavant error code for failure.
@@ -37,7 +39,7 @@ HRESULT IsDeviceProvisionedInAzure(
 
 // Erases data stored in specified TPM logical slot.
 //    tpmSlotNumber - user has to pass TPM logical slot number to erase data. 
-//    returns S_OK for successful reading and other relavant error code for failure.
+//    returns S_OK on successful reading and other relavant error code for failure.
 HRESULT EmptyTpmSlot(UINT32 tpmSlotNumber);
 
 // Get azure connection string(SAS token based) by reading the hostage key and service url stored in TPM.
@@ -48,7 +50,7 @@ HRESULT EmptyTpmSlot(UINT32 tpmSlotNumber);
 //       On successful reading buffer will be updated with sas token based azure connection string.
 //    pcchConnectionString - User has to pass the WCHAR buffer count of azure connection string.
 //       On successful reading, it will be updated with actual buffer count of the returned azure connection string.
-//    returns S_OK for successful reading and other relavant error code for failure.
+//    returns S_OK on successful reading and other relavant error code for failure.
 HRESULT GetAzureConnectionString(
     __in UINT32 tpmSlotNumber,
     __in DWORD expiryDurationInSeconds,
@@ -58,11 +60,11 @@ HRESULT GetAzureConnectionString(
 );
 
 // Register the device with IotHub by using azure dps service.
-//    pre-requiste: Before using this API, you need to sign up with azure and subscribe to IotHub & DPS and upload the device information to DPS service.
+//    pre-requiste: Before using this API, you need to sign up with azure and subscribe to IotHub & DPS and upload the device information to DPS service. Please see ReadMe of the repo for more details.
 //    tpmSlotNumber - user has to pass TPM slot number to store the key.
 //    dpsUri - user has to pass azure device provisioning service global end point.
 //    dpsScopeId - uaser has to pass customer dps scope id. You can get this information from azure portal dps service->overview->id scope.
-//    returns S_OK for successful reading and other relavant error code for failure.
+//    returns S_OK on successful reading and other relavant error code for failure.
 HRESULT AzureDpsRegisterDevice(
     UINT32 tpmSlotNumber,
     const std::wstring dpsUri,
