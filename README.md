@@ -1,4 +1,4 @@
-# azure-dm-client
+# Azurre Device Management Tools
 
 ### Limpet.exe
 
