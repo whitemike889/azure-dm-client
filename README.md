@@ -3,7 +3,7 @@
 ### Limpet.exe
 
 ####    Overview
- Limpet.exe allow local processess to use TPM for storing azure connection strings, retrieve SAS tokens and many more.
+ Limpet.exe allow local processess to use TPM for storing azure connection strings, retrieve SAS tokens, register the device with iothub using azure dps service and many more.
 
 ####    Command-line syntax
 <pre>
@@ -124,7 +124,7 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
 
 * Option 3: Use the [Device Management(DM) hello world application](<https://github.com/ms-iot/iot-core-azure-dm-client/blob/master/docs/dm-hello-world-overview.md>) for managing the device.
 
-Here is the screen shot for reference,
+Here is the screen shot for reference(morphed PII info),
 
 <img src="docs/LimpetAzuredpsRegister.PNG"/>
 
