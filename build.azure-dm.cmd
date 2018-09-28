@@ -1,6 +1,6 @@
 :: Copyright (c) Microsoft Corporation. All rights reserved.
 :: Licensed under the MIT License.
-:: This script runs CMAKE to prepare the Azure SDK then builds the necessary SDK components and DPS app
+:: This script will build necessary components for Limpet.
 @echo off
 
 goto START
