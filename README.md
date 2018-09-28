@@ -3,7 +3,7 @@
 ### Limpet.exe
 
 ####    Overview
- Limpet.exe allow local processess to use TPM for storing azure connection strings, retrieve SAS tokens, register the device with iothub using azure dps service and many more.
+ Limpet.exe allows local processess to use TPM for storing azure connection strings, retrieve SAS tokens, register the device with IoTHub using azure DPS service and many more.
 
 ####    Command-line syntax
 <pre>
@@ -77,13 +77,13 @@ Be sure you are using Visual Studio 2017 with Visual C++ (this last bit is impor
 
 #### Setup Azure cloud resources
 
-Setup cloud resources by following steps mentioned in https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-cloud and gather below information.
+Setup cloud resources by following steps mentioned in https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-cloud and gather the information below.
 
     --ID Scope - You can get from Azure portal -> Device Provisioning Services -> Overview -> ID Scope.
     --Global device end point - You can get from Azure portal -> Device Provisioning Services -> Overview -> Global device endpoint.  
 
 #### Enroll the device in DPS
-* Set up Windows IoT device with TPM by using the below link if you do not have already.
+* Set up Windows IoT device with TPM by using the below link if you have not already.
     https://developer.microsoft.com/en-us/windows/iot/getstarted
 
 * Connect to device using PowerShell by using device administrator credentials from your development machine.
