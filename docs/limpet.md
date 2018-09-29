@@ -93,7 +93,7 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
   
   Here is the screenshot for reference,
   
-  <img src="docs/limpetazuredpsenrollinfo.PNG"/>
+  <img src="limpetazuredpsenrollinfo.PNG"/>
 
 * Enroll the device in DPS by following TPM based devices steps in the below link,
     https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-provision-device-to-hub#enrolldevice
@@ -124,7 +124,7 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
 
 Here is the screen shot for reference(morphed PII info),
 
-<img src="docs/LimpetAzuredpsRegister.PNG"/>
+<img src="limpetazuredpsregister.PNG"/>
 
 
 #### Setting up remote PowerShell connection
