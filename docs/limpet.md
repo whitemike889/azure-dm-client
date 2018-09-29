@@ -124,7 +124,7 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
 
 Here is the screen shot for reference(morphed PII info),
 
-<img src="limpetazuredpsregister.PNG"/>
+<img src="limpetazuredpsregister.png"/>
 
 
 #### Setting up remote PowerShell connection
