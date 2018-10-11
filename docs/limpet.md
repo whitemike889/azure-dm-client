@@ -1,7 +1,17 @@
-# Limpet.exe
+# Limpet
 
 ####    Overview
  Limpet.exe allows local processess to use TPM for storing azure connection strings, retrieve SAS tokens, register the device with IoTHub using azure DPS service and many more.
+
+#### TPM Support
+
+| Board | Version | Meets Azure TPM Requirements | Notes |
+|-------|---------|---------|---------|
+| DragonBoard | 2.0 | Yes | Firmware TPM
+| RP2/3 | - | No |TPM simulator can be installed for development purpose. Keep in mind that a TPM simulator will not provide any security improvement to the platform. 
+| MBM   | 2.0 | No | Firmware TPM does not support as it did not have support for HMAC commands. TPM simulator can be installed for development purpose.
+| HummingBoard | NA | NA | TPM simulator can be installed for development purpose. Keep in mind that a TPM simulator will not provide any security improvement to the platform.
+
 
 ####    Command-line syntax
 <pre>
@@ -42,37 +52,6 @@ Limpet.exe [-azuredps [<dps connection string>] [command] [parameters]
 
 </pre>
 
-#### Get from github
-Clone recursively:
-
-    git clone --recursive https://github.com/ms-iot/azure-dm-client
-
-If you find that the deps folder is empty, try this:
-
-    git submodule update --init --recursive
-
-#### Set up development environment
-Be sure you have CMAKE configured:
-
-* Install [CMake](https://cmake.org/download/). 
-* Make sure it is in your PATH by typing cmake -version from a command prompt. CMake will be used to create Visual Studio projects to build libraries and samples. 
-* Make sure your CMake version is at least 3.6.1.
-
-Be sure you have PERL configured:
-
-* Install [perl](https://www.perl.org/get.html). You can use either ActivePerl or Strawberry Pearl. Run the installer as administrator to avoid issues.
-    
-Be sure you are using Visual Studio 2017 with Visual C++ (this last bit is important!)
-
-#### Build binaries for x86, ARM and X64
-
-    Start a VS 2017 developer command prompt
-    cd <repo>
-    build.all.cmd
- 
- * Building only azure-c-sdk, run build.azure-c-sdk.cmd
- * Building only limpet, run build.azure-dm.cmd
-
 #### Setup Azure cloud resources
 
 Setup cloud resources by following steps mentioned in https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-cloud and gather the information below.
@@ -80,7 +59,10 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
     --ID Scope - You can get from Azure portal -> Device Provisioning Services -> Overview -> ID Scope.
     --Global device end point - You can get from Azure portal -> Device Provisioning Services -> Overview -> Global device endpoint.  
 
-#### Enroll the device in DPS
+#### Register a device with IoT Hub via DPS -  offline manufacturing process
+
+Use this process if the device can not be or should not be registered with an IoT Hub at manufacturing. The DPS enrollment information can be collected through this process. DPS registration can take place in a separate step and might utilize bulk registration as described in [Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service.](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-provision-device-to-hub#enrolldevice)
+
 * Set up Windows IoT device with TPM by using the below link if you have not already.
     https://developer.microsoft.com/en-us/windows/iot/getstarted
 
@@ -98,7 +80,9 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
 * Enroll the device in DPS by following TPM based devices steps in the below link,
     https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-provision-device-to-hub#enrolldevice
 
-#### Register the device in IotHub using DPS.
+#### Register a device with IoT Hub via DPS - first boot time
+
+This is a sample test code written in limpet to use the dps client api's. Feel free to pick up the code and use it in your customized solution.
 
 * Run the below command in remote PowerShell connection to register the current device in IotHub using DPS service.
 
