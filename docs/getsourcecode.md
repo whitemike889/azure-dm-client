@@ -1,4 +1,4 @@
-#### Get from github
+#### How to get source code
 Clone recursively:
 
     git clone --recursive https://github.com/ms-iot/azure-dm-client
