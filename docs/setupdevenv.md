@@ -1,4 +1,4 @@
-#### Set up development environment
+#### How to set up development environment
 
 Be sure you have CMAKE configured:
 
