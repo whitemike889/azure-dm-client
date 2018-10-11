@@ -81,8 +81,7 @@ Use this process if the device can not be or should not be registered with an Io
     https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-provision-device-to-hub#enrolldevice
 
 #### Register a device with IoT Hub via DPS - first boot time
-
-This is a sample test code written in limpet to use the dps client api's. Feel free to pick up the code and use it in your customized solution.
+Use this registration process if you like to register the device with an IoT Hub during first boot. This is a sample test code written in limpet to use the dps client api's. Feel free to pick up the code and use it in your customized solution.
 
 * Run the below command in remote PowerShell connection to register the current device in IotHub using DPS service.
 
