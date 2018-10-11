@@ -59,19 +59,24 @@ Setup cloud resources by following steps mentioned in https://docs.microsoft.com
     --ID Scope - You can get from Azure portal -> Device Provisioning Services -> Overview -> ID Scope.
     --Global device end point - You can get from Azure portal -> Device Provisioning Services -> Overview -> Global device endpoint.  
 
-#### Register a device with IoT Hub via DPS -  offline manufacturing process
+#### Enroll device with Azure device provisioning service -  offline manufacturing process
 
-Use this process if the device can not be or should not be registered with an IoT Hub at manufacturing. The DPS enrollment information can be collected through this process. DPS registration can take place in a separate step and might utilize bulk registration as described in [Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service.](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-provision-device-to-hub#enrolldevice)
+Use this process if the device can not be or should not be registered with an IoT Hub at manufacturing. The DPS enrollment information can be collected through this process. 
 
+##### Pre-requisites:
 * Set up Windows IoT device with TPM by using the below link if you have not already.
     https://developer.microsoft.com/en-us/windows/iot/getstarted
 
 * Connect to device using PowerShell by using device administrator credentials from your development machine.
 
 * Copy the limpet tool (limpet.exe built in the previous step) to Windows IoT device.
+
+##### Steps for collecting information from the device:
 * Run limpet tool from remote powershell connection.
     limpet.exe -azuredps -enrollmentinfo
     Tool prints endorsement key and registration id, please note down.
+
+Note that this step is for development purpose, feel free to use this tool integrate with your system integrator solution to collect information from the device and upload it to Azure using the tools provided by them.
   
   Here is the screenshot for reference,
   
