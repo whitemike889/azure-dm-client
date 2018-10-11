@@ -1,5 +1,4 @@
-#### How to set up development environment
-
+#### Set up development environment
 Be sure you have CMAKE configured:
 
 * Install [CMake](https://cmake.org/download/). 
@@ -11,6 +10,15 @@ Be sure you have PERL configured:
 * Install [perl](https://www.perl.org/get.html). You can use either ActivePerl or Strawberry Pearl. Run the installer as administrator to avoid issues.
     
 Be sure you are using Visual Studio 2017 with Visual C++ (this last bit is important!)
+
+#### Get source code from github
+Clone recursively:
+
+    git clone --recursive https://github.com/ms-iot/azure-dm-client
+
+If you find that the deps folder is empty, try this:
+
+    git submodule update --init --recursive
 
 #### Build binaries for x86, ARM and X64
 
