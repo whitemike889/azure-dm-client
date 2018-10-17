@@ -1,7 +1,16 @@
 # Limpet
 
 ####    Overview
- Limpet.exe allows local processess to use TPM for storing azure connection strings, retrieve SAS tokens, register the device with IoTHub using azure DPS service and many more.
+
+Limpet is a console application developed using Urchin TPM library & windows API's and it uses local processes to use TPM. It simplifies various operations with TPM and sample code to use Azure DPS client functionality.
+
+* Install TPM simulator (or) dTPM's for development/testing purpose.
+* Read TPM general information and read endorsement key public and storage root key public.
+* It helps to create/evict symmetric identities and sign data with created key.
+* It supports importing PFX file into TPMKSP and machine "My" store.
+* It has sample code to extract information needed for Azure DPS registration.
+* It has sample code to register the device with IotHub via DPS process.
+
 
 #### TPM Support
 
@@ -51,6 +60,10 @@ Limpet.exe [-azuredps [<dps connection string>] [command] [parameters]
  -azuredps -enrollmentinfo <csv/json/txt> => read device tpm information needed for enrolling the device later in dps and output in given format.
 
 </pre>
+
+#### User Priviliges
+
+ Requires administrator prviliges to run Limpet.exe.
 
 #### Setup Azure cloud resources
 
