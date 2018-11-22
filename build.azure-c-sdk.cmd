@@ -36,24 +36,29 @@ set NLM=^
 
 
 
-set SPLITSTR=x86 arm,ARM x64,Win64
+set SPLITSTR=x86 arm,ARM x64,Win64 arm64,ARM64
 set SPLITSTR=%SPLITSTR: =!NLM!%
 
 for /f "tokens=1,2 delims==," %%i in ("!SPLITSTR!") do (
     mkdir %%i
     pushd %%i
     set BUILDSTR=Visual Studio 15 2017
-    IF NOT [%%j]==[] (
-        set BUILDSTR=!BUILDSTR! %%j
+    set ARCH=
+    if [%%j]==[ARM64] (
+        set ARCH=-A %%j
+    ) else (
+        IF NOT [%%j]==[] (
+            set BUILDSTR=!BUILDSTR! %%j
+        )
     )
-    cmake -G "!BUILDSTR!" .. -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=OFF -Dbuild_provisioning_service_client=ON ..
+    cmake -G "!BUILDSTR!" !ARCH! .. -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=OFF -Dbuild_provisioning_service_client=ON ..
     popd
 )
 
 echo .
 echo "Building Azure SDK libraries"
 echo .
-for %%Z in (x86 arm x64) do (
+for %%Z in (x86 arm x64 arm64) do (
     pushd %%Z
     msbuild c-utility\aziotsharedutil.vcxproj /p:TargetPlatformVersion=%TARGETPLATVER%
     msbuild iothub_client\iothub_client.vcxproj /p:TargetPlatformVersion=%TARGETPLATVER%
