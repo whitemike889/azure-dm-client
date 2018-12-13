@@ -31,7 +31,7 @@ pushd %~dp0
 echo .
 echo "Building DM binaries"
 echo .
-for %%Z in (x86 ARM x64) do (
+for %%Z in (x86 ARM x64 ARM64) do (
     msbuild code\Utilities\Utilities.vcxproj /p:Configuration=Debug /p:Platform=%%Z /p:TargetPlatformVersion=%TARGETPLATVER%
     msbuild code\LimpetApi\LimpetApi.vcxproj /p:Configuration=Debug /p:Platform=%%Z /p:TargetPlatformVersion=%TARGETPLATVER%
     msbuild code\AzureDeviceProvisioningClient\AzureDeviceProvisioningClient.vcxproj /p:Configuration=Debug /p:Platform=%%Z /p:TargetPlatformVersion=%TARGETPLATVER%
