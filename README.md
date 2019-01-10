@@ -1,5 +1,3 @@
 # Azure Client Tools
 
-- [Setup development environment](docs/setupdevenv.md)
-- [Limpet](docs/limpet.md)
-- [DpsClientApis](docs/dpsclientapis.md)
+The contents of this repo have been moved to [https://github.com/ms-iot/azure-client-tools](https://github.com/ms-iot/azure-client-tools).
